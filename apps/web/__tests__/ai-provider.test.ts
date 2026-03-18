@@ -78,7 +78,7 @@ describe("getModel", () => {
   it("returns a MiniMax model when MINIMAX_API_KEY is set", () => {
     process.env.MINIMAX_API_KEY = "sk-test-minimax";
     const model = getModel();
-    expect(model.modelId).toBe("MiniMax-M2.5");
+    expect(model.modelId).toBe("MiniMax-M2.7");
   });
 
   it("allows overriding MiniMax model via MINIMAX_MODEL", () => {
@@ -92,6 +92,6 @@ describe("getModel", () => {
     process.env.OPENAI_API_KEY = "sk-test-openai";
     process.env.MINIMAX_API_KEY = "sk-test-minimax";
     const model = getModel();
-    expect(model.modelId).toBe("MiniMax-M2.5");
+    expect(model.modelId).toBe("MiniMax-M2.7");
   });
 });
