@@ -4,7 +4,7 @@ import { createOpenAI } from "@ai-sdk/openai";
  * Returns the configured LLM model for AI completions.
  *
  * Provider priority:
- *   1. If MINIMAX_API_KEY is set → MiniMax (MiniMax-M2.7)
+ *   1. If MINIMAX_API_KEY is set → MiniMax (MiniMax-M3)
  *   2. If OPENAI_API_KEY is set  → OpenAI  (gpt-4o-mini)
  *
  * MiniMax uses an OpenAI-compatible API, so we reuse @ai-sdk/openai
@@ -16,7 +16,7 @@ export function getModel() {
       baseURL: "https://api.minimax.io/v1",
       apiKey: process.env.MINIMAX_API_KEY,
     });
-    return minimax(process.env.MINIMAX_MODEL ?? "MiniMax-M2.7");
+    return minimax(process.env.MINIMAX_MODEL ?? "MiniMax-M3");
   }
 
   const openai = createOpenAI({

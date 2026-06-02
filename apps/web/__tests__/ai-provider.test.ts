@@ -78,20 +78,20 @@ describe("getModel", () => {
   it("returns a MiniMax model when MINIMAX_API_KEY is set", () => {
     process.env.MINIMAX_API_KEY = "sk-test-minimax";
     const model = getModel();
-    expect(model.modelId).toBe("MiniMax-M2.7");
+    expect(model.modelId).toBe("MiniMax-M3");
   });
 
   it("allows overriding MiniMax model via MINIMAX_MODEL", () => {
     process.env.MINIMAX_API_KEY = "sk-test-minimax";
-    process.env.MINIMAX_MODEL = "MiniMax-M2.5-highspeed";
+    process.env.MINIMAX_MODEL = "MiniMax-M2.7-highspeed";
     const model = getModel();
-    expect(model.modelId).toBe("MiniMax-M2.5-highspeed");
+    expect(model.modelId).toBe("MiniMax-M2.7-highspeed");
   });
 
   it("prioritizes MiniMax over OpenAI when both keys are set", () => {
     process.env.OPENAI_API_KEY = "sk-test-openai";
     process.env.MINIMAX_API_KEY = "sk-test-minimax";
     const model = getModel();
-    expect(model.modelId).toBe("MiniMax-M2.7");
+    expect(model.modelId).toBe("MiniMax-M3");
   });
 });
